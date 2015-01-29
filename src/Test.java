@@ -11,6 +11,15 @@ public class Test{
 		assertEquals(false, Clock.stopTime());
 	}
 	public void testSetAlarm(){		
-		assertEquals(true, Clock.setAlarm());
+		//assertNotNull(Clock.alarmClock());
+	}
+	public void testTime(){
+		//assertNotNull(Clock.time());
+	}
+	public void testClock(){
+		
+	}
+	public void testAlarmClock(){
+		
 	}
 }

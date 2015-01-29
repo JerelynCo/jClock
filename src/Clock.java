@@ -26,9 +26,6 @@ public class Clock {
 	public static void main(String[] args) {
 		System.out.println("Menu: Type in the number of feature to use");
 		System.out.println("(1)\tDigital Time \n(2)\tStopwatch \n(3)\tSet Alarm");
-		
-		
-		String last ="";
 		int ans = scan.nextInt();
 		
 		while(ans>3){
@@ -39,11 +36,10 @@ public class Clock {
 			case 1:
 				clock();
 			case 2:
-				//Stopwatch
+				//Stop watch
 				break;
 			case 3: 
 				alarmClock();
-				
 		}
 		scan.close();
 	}
@@ -62,13 +58,7 @@ public class Clock {
 	public static boolean stopTime(){
 		return false;	
 	}
-	/*
-	 *alarm will be used in the main to determine whether the application has to stop or not 
-	 * @return boolean true if the alarm is successfully set
-	 */
-	public static boolean setAlarm(){
-		return true;
-	}
+
 	/*
 	 * @return prevents printing the same time
 	 */
@@ -87,7 +77,8 @@ public class Clock {
 		}
 	}
 	/*
-	 * @return has a alarm
+	 *alarm will be used in the main to determine whether the application has to stop or not 
+	 * @return boolean true if the alarm is successfully set
 	 */
 	public static void alarmClock(){
 		String setTime = scan.next();
