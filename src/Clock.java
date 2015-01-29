@@ -1,11 +1,7 @@
-/** 
- * @author Jerelyn Co, Marion Ivan Tan
- * @version 1.0
- */
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Scanner;
 
 /*
  * Class Clock will display the digital time.
@@ -17,14 +13,22 @@ public class Clock {
 	 * @param args For console's use
 	 */
 	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		String setTime = scan.next();
+		scan.close();
 		String last = "";
-		DateFormat df = new SimpleDateFormat("hh:mm:ss a");
-		while(!stopTime()){
+		boolean stop = false;
+		DateFormat df = new SimpleDateFormat("hh:mm:ssa");
+		while(stop == false){
 			if(!digitalTime(df).equals(last)){
 				last = digitalTime(df);
-				System.out.println("Time: " + last);
+				System.out.println(last);
+			}
+			if(setTime.equalsIgnoreCase(last)==true){
+				stop = true;
 			}
 		}
+		System.out.println("Hello");
 	}
 	/*
 	 * @return String formatted time to display at main
