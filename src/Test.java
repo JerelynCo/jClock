@@ -10,16 +10,11 @@ public class Test{
 	public void testStopTime(){		
 		assertEquals(false, Clock.stopTime());
 	}
-	public void testSetAlarm(){		
-		//assertNotNull(Clock.alarmClock());
-	}
-	public void testTime(){
-		//assertNotNull(Clock.time());
-	}
-	public void testClock(){
-		
-	}
-	public void testAlarmClock(){
-		
+	public void testCheckUserInput(){	
+		assertEquals(false, Clock.checkUserInput(0));
+		assertEquals(false, Clock.checkUserInput(4));
+		assertEquals(true, Clock.checkUserInput(3));
+		assertEquals(true, Clock.checkUserInput(2));
+		assertEquals(true, Clock.checkUserInput(1));
 	}
 }

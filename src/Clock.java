@@ -9,29 +9,25 @@ import java.util.Calendar;
 import java.util.Scanner;
 
 /*
-
-/*
  * Class Clock will display the digital time.
  */
-
 public class Clock {
-	/*
-	 * @return String "Time: " and the formatted time from method digital time
-	 * @param args For console's use
-	 */
 	static String last = "";
 	static DateFormat df = new SimpleDateFormat("hh:mm:ssa");
 	static Scanner scan = new Scanner(System.in);
 	
+	/* 
+	 * @param args For console's use
+	 */
 	public static void main(String[] args) {
-		System.out.println("Menu: Type in the number of feature to use");
-		System.out.println("(1)\tDigital Time \n(2)\tStopwatch \n(3)\tSet Alarm");
-		int ans = scan.nextInt();
-		
-		while(ans>3){
-			System.out.println("Error. Please input again");
+        int ans = 0;
+		do{
+			System.out.println("Menu: Type in the number of feature to use");
+			System.out.println("(1)\tDigital Time \n(2)\tStopwatch \n(3)\tSet Alarm");
+
 			ans = scan.nextInt();
-		}
+		}while(!checkUserInput(ans));
+		
 		switch(ans){
 			case 1:
 				clock();
@@ -44,6 +40,20 @@ public class Clock {
 		scan.close();
 	}
 	/*
+	 * @return boolean to check whether the user pressed the right number
+	 * @param ans number to be tested
+	 */
+	public static boolean checkUserInput(int ans){
+		//check if the input matches the menu number
+		if(ans > 0 && ans < 4){
+			return true;
+		}
+		else{
+			System.out.println("Error. Please input again");
+			return false;
+		}
+	}
+	/*
 	 * @return String formatted time to display at main
 	 * @param df Format for the time
 	 */
@@ -52,18 +62,18 @@ public class Clock {
 		return df.format(calobj.getTime());
 	}
 	/*
-	 *stopTime will be used in the main to determine whether the application has to stop or not 
-	 * @return boolean to stop time
+	 *checkString checks if the precious string is equal to the current string 
+	 * @return boolean true or false
 	 */
-	public static boolean stopTime(){
-		return false;	
+	public static boolean checkString(){
+		return digitalTime(df).equals(last);	
 	}
 
 	/*
 	 * @return prevents printing the same time
 	 */
 	public static void time(){
-		if(!digitalTime(df).equals(last)){
+		if(!checkString()){
 			last = digitalTime(df);
 			System.out.println("Time: " + last);
 		}
@@ -72,7 +82,7 @@ public class Clock {
 	 * @return prints the time
 	 */
 	public static void clock(){
-		while(!stopTime()){
+		while(true){
 			time();
 		}
 	}
@@ -81,6 +91,7 @@ public class Clock {
 	 * @return boolean true if the alarm is successfully set
 	 */
 	public static void alarmClock(){
+		System.out.println("Set Alarm in HH:MM:SSa format:");
 		String setTime = scan.next();
 		scan.close();
 		while(setTime.equalsIgnoreCase(last)==false){
