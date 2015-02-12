@@ -7,8 +7,10 @@ public class Test{
 	public void testDigitalTime(DateFormat df){		
 		assertNotNull(Clock.digitalTime(df));
 	}
-	public void testStopTime(){		
-		assertEquals(false, Clock.stopTime());
+	public void testCheckString(){		
+		String last = "12:00:00";
+		assertNotNull(Clock.checkString(df));
+		assertEquals(false,Clock.checkString(df));
 	}
 	public void testCheckUserInput(){	
 		assertEquals(false, Clock.checkUserInput(0));
