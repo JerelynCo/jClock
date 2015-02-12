@@ -65,15 +65,15 @@ public class Clock {
 	 *checkString checks if the precious string is equal to the current string 
 	 * @return boolean true or false
 	 */
-	public static boolean checkString(){
-		return digitalTime(df).equals(last);	
+	public static boolean checkString(String time){
+		return digitalTime(df).equals(time);	
 	}
 
 	/*
 	 * @return prevents printing the same time
 	 */
 	public static void time(){
-		if(!checkString()){
+		if(!checkString(last)){
 			last = digitalTime(df);
 			System.out.println("Time: " + last);
 		}
