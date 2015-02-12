@@ -8,9 +8,9 @@ public class Test{
 		assertNotNull(Clock.digitalTime(df));
 	}
 	public void testCheckString(){		
-		String last = "12:00:00";
-		assertNotNull(Clock.checkString(df));
-		assertEquals(false,Clock.checkString(df));
+		assertNotNull(Clock.checkString("12:00:00AM"));
+		assertNotNull(Clock.checkString("01:12:00PM"));
+		assertEquals(false,Clock.checkString("12:00:00AM"));
 	}
 	public void testCheckUserInput(){	
 		assertEquals(false, Clock.checkUserInput(0));
