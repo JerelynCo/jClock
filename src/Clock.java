@@ -20,10 +20,11 @@ public class Clock {
 	 * @param args For console's use
 	 */
 	public static void main(String[] args) {
-		int ans = 0;
+        int ans = 0;
 		do{
 			System.out.println("Menu: Type in the number of feature to use");
 			System.out.println("(1)\tDigital Time \n(2)\tStopwatch \n(3)\tSet Alarm");
+
 			ans = scan.nextInt();
 		}while(!checkUserInput(ans));
 		
@@ -31,11 +32,10 @@ public class Clock {
 			case 1:
 				clock();
 			case 2:
-				//Stopwatch
+				//Stop watch
 				break;
 			case 3: 
 				alarmClock();
-				
 		}
 		scan.close();
 	}
@@ -62,18 +62,18 @@ public class Clock {
 		return df.format(calobj.getTime());
 	}
 	/*
-	 *stopTime will be used in the main to determine whether the application has to stop or not 
-	 * @return boolean to stop time
+	 *checkString checks if the precious string is equal to the current string 
+	 * @return boolean true or false
 	 */
-	public static boolean stopTime(){
-		return false;	
+	public static boolean checkString(String time){
+		return digitalTime(df).equals(time);	
 	}
 
 	/*
 	 * @return prevents printing the same time
 	 */
 	public static void time(){
-		if(!digitalTime(df).equals(last)){
+		if(!checkString(last)){
 			last = digitalTime(df);
 			System.out.println("Time: " + last);
 		}
@@ -82,7 +82,7 @@ public class Clock {
 	 * @return prints the time
 	 */
 	public static void clock(){
-		while(!stopTime()){
+		while(true){
 			time();
 		}
 	}
