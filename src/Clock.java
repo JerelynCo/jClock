@@ -30,11 +30,14 @@ public class Clock {
 		
 		switch(ans){
 			case 1:
+				System.out.println("**Clock mode**");
 				clock();
 			case 2:
-				//Stop watch
+				System.out.println("**Stopwatch mode**");
+				stopwatch();
 				break;
 			case 3: 
+				System.out.println("**Alarm clock mode**");
 				alarmClock();
 		}
 		scan.close();
@@ -68,7 +71,6 @@ public class Clock {
 	public static boolean checkString(String time){
 		return digitalTime(df).equals(time);	
 	}
-
 	/*
 	 * @return prevents printing the same time
 	 */
@@ -91,6 +93,7 @@ public class Clock {
 	 * @return boolean true if the alarm is successfully set
 	 */
 	public static void alarmClock(){
+		System.out.println("**Alarm mode**");
 		System.out.println("Set Alarm in HH:MM:SSa format:");
 		String setTime = scan.next();
 		scan.close();
@@ -100,5 +103,48 @@ public class Clock {
 		while(true){
 			System.out.println("Alarm!");
 		}
+	}
+	static long startTime;
+	static long stopTime;
+	/*
+	 *stopwatch will be the method where the user can start and stop the stopwatch mode 
+	 */
+	public static void stopwatch(){		
+		int counter = 0;
+		System.out.println("**Press s to stop and/or stop**");
+		do{
+			String toggle = scan.next();
+			if(toggle.equals("s")){
+				counter++;
+				if(counter%2!=0){
+					System.out.println("Stopwatch Started");
+					startTime = System.currentTimeMillis();
+				}
+				else{
+					System.out.println("Stopwatch Stopped");
+					if(getTimeElapsed() < 1000){
+						System.out.println(getTimeElapsed() + "ms");
+					}
+					else if(getTimeElapsed() > 1000 && getTimeElapsed() < 60000){
+						
+						System.out.println(getTimeElapsed()/1000 + "s" + getTimeElapsed()%1000 + "ms");
+					}
+					else if(getTimeElapsed() >= 60000){
+						System.out.println(getTimeElapsed()/60000 +"m" + (getTimeElapsed()%60000)/1000 + "s" + getTimeElapsed()%1000 + "ms");
+					}
+				}
+			}
+			else{
+				System.out.println("Try again");
+			}
+			toggle = ""; //empties toggle string
+		}while(toContinue());
+	}
+	
+	public static long getTimeElapsed(){
+		return (System.currentTimeMillis() - startTime);
+	}
+	public static boolean toContinue(){
+		return true;
 	}
 };
