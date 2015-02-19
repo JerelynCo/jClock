@@ -62,7 +62,7 @@ public class Clock {
 		return df.format(calobj.getTime());
 	}
 	/*
-	 *checkString checks if the precious string is equal to the current string 
+	 *checkString checks if the previous string is equal to the current string 
 	 * @return boolean true or false
 	 */
 	public static boolean checkString(String time){
