@@ -9,11 +9,7 @@ import org.junit.Test;
 public class ClockTest {
 
 	DateFormat df = new SimpleDateFormat("hh:mm:ss a");
-	/*@Test
-	public void testDigitalTime(DateFormat df){		
-		assertNotNull(Clock.digitalTime(df));
-	}*/
-	
+		
 	@Test
 	public void testCheckUserInput(){	
 		assertEquals(false, Clock.checkUserInput(0));
