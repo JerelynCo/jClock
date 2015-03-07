@@ -2,11 +2,13 @@ import static org.junit.Assert.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 	
-public class Test{
+public class test{
 	DateFormat df = new SimpleDateFormat("hh:mm:ss a");
+	
 	public void testDigitalTime(DateFormat df){		
 		assertNotNull(Clock.digitalTime(df));
 	}
+	
 	public void testCheckString(){		
 		assertNotNull(Clock.checkString("12:00:00AM"));
 		assertNotNull(Clock.checkString("01:12:00PM"));
@@ -20,6 +22,7 @@ public class Test{
 		assertEquals(false,Clock.checkString("25:70:61GM"));
 		assertEquals(Clock.checkString("13:70:61AM"),Clock.checkString("25:70:61GM"));
 	}
+	
 	public void testCheckUserInput(){	
 		assertEquals(false, Clock.checkUserInput(0));
 		assertEquals(false, Clock.checkUserInput(4));
@@ -32,11 +35,13 @@ public class Test{
 		assertEquals(false,Clock.checkUserInput(04));
 		assertEquals(Clock.checkUserInput(3),Clock.checkUserInput(2));
 	}
+	
 	public void testToContinue(){
 		assertNotNull(Clock.toContinue());
 		assertEquals(true,Clock.toContinue());
 		assertNotEquals(false,Clock.toContinue());
 	}
+	
 	public void testGetTimeElapsed(){
 		assertNotNull(Clock.getTimeElapsed());
 		assertEquals(Clock.getTimeElapsed(),Clock.getTimeElapsed());
