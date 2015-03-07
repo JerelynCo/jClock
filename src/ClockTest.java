@@ -13,6 +13,7 @@ public class ClockTest {
 	public void testDigitalTime(DateFormat df){		
 		assertNotNull(Clock.digitalTime(df));
 	}*/
+	
 	@Test
 	public void testCheckUserInput(){	
 		assertEquals(false, Clock.checkUserInput(0));
