@@ -15,7 +15,6 @@ public class Clock {
 	static String last = "";
 	static DateFormat df = new SimpleDateFormat("hh:mm:ssa");
 	static Scanner scan = new Scanner(System.in);
-	
 	/** 
 	 * @param args For console's use
 	 */
