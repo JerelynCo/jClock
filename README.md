@@ -15,7 +15,7 @@ the corresponding number.</p>
 
 <h3>Features</h3>
 <ul>
-	<li><b>Digital Time<b></li>
+	<li>Digital Time</li>
 	<p>Simply displays the current system time.</p>
 	
 	<li>Stopwatch</li>
