@@ -1,7 +1,11 @@
 import static org.junit.Assert.*;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-	
+
+import org.junit.Test;
+
+
 public class ClockTest{
 	DateFormat df = new SimpleDateFormat("hh:mm:ss a");
 	
@@ -10,6 +14,7 @@ public class ClockTest{
 	}
 	
 	//Whether the user pressed an int or any other type is already checked.
+	@Test
 	public void testCheckUserInput(){		
 		assertEquals(true, Clock.checkUserInput(3));
 		assertEquals(true, Clock.checkUserInput(2));
@@ -22,10 +27,12 @@ public class ClockTest{
 		assertEquals(false, Clock.checkUserInput(4));
 	}
 	
+	@Test
 	public void testGetTimeElapsed(){
 		assertNotNull(Clock.getTimeElapsed());
 	}
 
+	@Test
 	public void testCheckAlarmTime(){		
 		assertEquals(false,Clock.checkAlarmTime("a", "12", "11", "a"));
 		assertNotNull(Clock.checkAlarmTime("a", "12", "11", ""));
@@ -40,6 +47,7 @@ public class ClockTest{
 		assertEquals(true,Clock.checkAlarmTime("9", "0", "12", "pm"));
 	}
 	
+	@Test
 	public void testConcatenaTime(){
 		assertEquals("01:00:12PM",Clock.concatenateTime("1", "0", "12", "pm"));
 		assertEquals("12:12:12PM",Clock.concatenateTime("12", "12", "12", "pM"));
@@ -53,3 +61,6 @@ public class ClockTest{
 		assertEquals("07:55:39PM",Clock.concatenateTime("7", "55", "39", "pm"));
 	}
 }
+
+
+
